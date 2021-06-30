@@ -1,7 +1,7 @@
 import pandas
-from yoweb.pirate import Affiliations, Reputations, Skills, Hearties, Familiars
-from yoweb.crew import BootyShares, ActiveMates, CrewAffiliations, CrewMembers
-from yoweb.ocean import TaxRates
+from pirate import Affiliations, Reputations, Skills, Hearties, Familiars
+from crew import BootyShares, ActiveMates, CrewAffiliations, CrewMembers
+from ocean import TaxRates
 
 
 class Ocean(object):
@@ -75,7 +75,7 @@ class Pirate(object):
         data = pandas.read_html(path)
         self._data = data
         familiars_data, hearties_data = None, None
-        affiliation_data = self._data[0][2][0].split('  ')
+        affiliation_data = self._data[0][0][0].split('  ')
         reputation_data = self._data[3][1]
 
         for row in self._data[0][0][1:]:
@@ -83,7 +83,6 @@ class Pirate(object):
                 hearties_data = str(row)
             if 'Familiars' in str(row):
                 familiars_data = str(row)
-
         self.affiliations = Affiliations(affiliation_data, self.name)
         self.reputations = Reputations(reputation_data, self.name)
         self.skills = Skills(self._data, self.name)

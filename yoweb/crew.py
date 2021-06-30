@@ -1,6 +1,6 @@
 from datetime import datetime
 import numpy as np
-from yoweb.helpers import SHARES
+from helpers import SHARES
 
 
 class BootyShares(object):

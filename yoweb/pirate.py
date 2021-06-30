@@ -1,4 +1,4 @@
-from yoweb.helpers import clean_stat, BASIC_ATTRS
+from helpers import clean_stat, BASIC_ATTRS
 
 
 class Affiliations(object):
